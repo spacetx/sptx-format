@@ -1,0 +1,65 @@
+{
+  "$id": "https://github.com/spacetx/sptx-format/schema/experiment.json",
+  "type": [
+    "object"
+  ],
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "An image-based transcriptomics or proteomics experiment",
+  "required": [
+    "version",
+    "hybridization_images",
+    "codebook"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "description": "the version number of the schema in major.minor.patch format.",
+      "type": "string",
+      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
+      "example": "1.0.0"
+    },
+    "hybridization_images": {
+      "$id": "/properties/hybridization_images",
+      "type": "string",
+      "description": "images that measure transcript or protein targets in one or more fields of view",
+      "examples": [
+        "hybridization.json"
+      ]
+    },
+    "codebook": {
+      "$id": "/properties/codebook",
+      "type": "string",
+      "description": "json file mapping targets the their expected values across imaging channels and rounds",
+      "example": "codebook.json"
+    },
+    "auxiliary_images": {
+      "$id": "/properties/auxiliary_images",
+      "type": [
+        "object"
+      ],
+      "additionalProperties": false,
+      "description": "images of non-target data such as nuclei or morphological structures",
+      "properties": {
+        "nuclei": {
+          "$id": "/properties/auxiliary_images/properties/nuclei",
+          "type": [
+            "string"
+          ],
+          "description": "an fov_manifest containing nuclei images",
+          "examples": [
+            "nuclei.json"
+          ]
+        }
+      }
+    },
+    "extras": {
+      "$id": "/properties/extras",
+      "description": "unstructured field used to contain additional data about this data manifest",
+      "default": null,
+      "examples": [
+        null, "spaceTx is great", {"extra_metadata": "critical_info"}
+      ]
+    }
+  }
+}
