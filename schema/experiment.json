@@ -14,10 +14,7 @@
   "additionalProperties": false,
   "properties": {
     "version": {
-      "description": "the version number of the schema in major.minor.patch format.",
-      "type": "string",
-      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
-      "example": "1.0.0"
+      "$ref": "schema/version.json"
     },
     "hybridization_images": {
       "$id": "/properties/hybridization_images",

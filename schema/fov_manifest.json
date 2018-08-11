@@ -8,11 +8,8 @@
     "contents"
   ],
   "properties": {
-     "version": {
-      "description": "the version number of the schema in major.minor.patch format.",
-      "type": "string",
-      "pattern": "^[0-9]{1,}.[0-9]{1,}.[0-9]{1,}$",
-      "example": "1.0.0"
+    "version": {
+      "$ref": "schema/version.json"
     },
     "contents": {
       "$id": "/properties/contents",

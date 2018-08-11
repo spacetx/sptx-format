@@ -5,12 +5,12 @@
       "x",
       "y",
       "z",
-      "h",
+      "r",
       "c"
   ],
   "shape": {
       "z": 45,
-      "h": 8,
+      "r": 8,
       "c": 2
   },
   "default_tile_format": "TIFF",
@@ -28,12 +28,12 @@
       },
       "indices": {
         "z": 0,
-        "h": 0,
+        "r": 0,
         "c": 0
       },
       "file": "fdaj3902.tiff",
       "tile_format": "TIFF",
-      "Sha256": "64f19dfc6d37dab41f122da95d973245e21493c710",
+      "sha256": "64f19dfc6d37dab41f122da95d973245e21493c710",
       "extras": {
         "are_we_missing_something":"probably"
       }
@@ -46,12 +46,12 @@
       },
       "indices": {
         "z": 1,
-        "h": 1,
+        "r": 1,
         "c": 0
       },
       "file": "F_1_Z_1_H_1_C_0.tiff",
       "tile_format": "TIFF",
- 	  "Sha256": "da95d973245e21493c71091adcdf9321d5c5fad0b5",
+ 	  "sha256": "da95d973245e21493c71091adcdf9321d5c5fad0b5",
       "extras": {
         "are_we_missing_something": "probably"
       }
