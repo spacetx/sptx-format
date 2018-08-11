@@ -1,8 +1,8 @@
 {
   "$id": "https://github.com/spacetx/sptx-format/schema/codebook.json",
-  "type": "object",
-  "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A manifest listing one or more json files that each describe a field of view.",
+  "type": "object",
   "required": [
     "version",
     "contents"
@@ -12,8 +12,7 @@
       "$ref": "schema/version.json"
     },
     "contents": {
-      "$id": "/properties/contents",
-      "description": "one or more {key: file} pairs that describe the location of fov.json files",
+      "description": "One or more {key: file} pairs that describe the location of fov.json files.",
       "type": "object",
       "minProperties": 1,
       "patternProperties": {
@@ -27,12 +26,7 @@
       }
     },
     "extras": {
-      "$id": "/properties/extras",
-      "description": "unstructured field used to contain additional data about this data manifest",
-      "default": null,
-      "examples": [
-        null, "spaceTx is great", {"extra_metadata": "critical_info"}
-      ]
+      "$ref": "schema/extras.json"
     }
   }
 }

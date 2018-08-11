@@ -1,8 +1,7 @@
 {
   "$id": "https://github.com/spacetx/sptx-format/schema/field_of_view/field_of_view.json",
-  "type": "object",
-  "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
   "required": [
     "version",
     "dimensions",
@@ -16,23 +15,16 @@
       "$ref": "schema/version.json"
     },
     "extras": {
-      "$id": "/properties/extras",
-      "description": "unstructured field used to contain additional data about this data manifest",
-      "default": null,
-      "examples": [
-        null, "spaceTx is great", {"extra_metadata": "critical_info"}
-      ]
+      "$ref": "schema/extras.json"
     },
     "dimensions": {
-      "$id": "/properties/dimensions",
       "type": "array",
-      "description": "dimensions of the image tensor described by this fov specification",
+      "description": "Dimensions of the image tensor described by this fov specification.",
       "minItems": 1,
       "items": {
         "$id": "/properties/dimensions/items",
         "type": "string",
-        "title": "Dimensions schema",
-        "description": "a dimension of the tensor described by this fov specification",
+        "description": "A dimension of the tensor described by this fov specification.",
         "examples": [
           "x",
           "y",
@@ -43,49 +35,45 @@
       }
     },
     "shape": {
-      "$id": "/properties/shape",
       "type": "object",
+      "description": "The shape of the categorical dimensions (channel, round, z-plane) of the field of view.",
       "required": [
         "c", "z"
       ],
       "properties": {
         "r": {
-          "$id": "/properties/shape/properties/r",
-          "description": "Number of imaging rounds",
+          "description": "Number of imaging rounds.",
           "type": "integer",
           "default": 1,
+          "minimum": 1,
           "examples": [
             1, 2, 10
-          ],
-          "minimum": 1
+          ]
         },
         "c": {
-          "$id": "/properties/shape/properties/c",
           "type": "integer",
-          "description": "Number of channels",
+          "description": "Number of channels.",
+          "minimum": 1,
           "default": 1,
           "examples": [
             3, 5, 10
-          ],
-          "minimum": 1
+          ]
         },
         "z": {
-          "$id": "/properties/shape/properties/z",
           "type": "integer",
-          "title": "Number of z-sections",
+          "title": "Number of z-sections.",
+          "minimum": 1,
           "default": 1,
           "examples": [
             1, 34, 67
-          ],
-          "minimum": 1
+          ]
         }
       }
     },
     "fov": {
-      "$id": "/properties/fov",
       "type": "integer",
       "minimum": 0,
-      "description": "identifies the index of this field of view within a larger experiment",
+      "description": "Identifies the index of this field of view within a larger experiment.",
       "examples": [
         0, 1, 4
       ]
@@ -97,25 +85,22 @@
       }
     },
     "default_tile_shape": {
-      "$id": "/properties/default_tile_shape",
       "type": "array",
       "minItems": 2,
       "maxItems": 2,
       "items": {
-        "$id": "/properties/default_tile_shape/items",
         "type": "integer",
-        "description": "the default tile shape (x, y) of the tiles in this field of view.",
+        "description": "The default tile shape (x, y) of the tiles in this field of view.",
         "example": 2048,
         "minimum": 0
       }
     },
     "default_tile_format": {
-      "$id": "/properties/default_tile_format",
       "type": "string",
       "title": "The default tile format for this field of view.",
-      "examples": [
+      "enum": [
         "TIFF",
-        "NPY"
+        "NUMPY"
       ]
     }
   }

@@ -1,6 +1,6 @@
 import os
 
-from .util import getpaths, load_json, load_validator
+from .util import getpaths, load_json, load_validator, validate
 
 SCHEMA_NAME = 'fov_manifest'
 
@@ -14,7 +14,7 @@ examples = os.path.join(examples, SCHEMA_NAME)
 def test_fov_manifest():
     example_path = os.path.join(examples, 'positive', f'{SCHEMA_NAME}.json')
     example = load_json(example_path)
-    assert validator.is_valid(example, schema)
+    assert validate(validator, example)
 
 
 def test_empty_manifest_raises_validation_error():
