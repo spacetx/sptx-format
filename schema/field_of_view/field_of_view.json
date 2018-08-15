@@ -37,9 +37,7 @@
     "shape": {
       "type": "object",
       "description": "The shape of the categorical dimensions (channel, round, z-plane) of the field of view.",
-      "required": [
-        "c", "z"
-      ],
+      "required": "c",
       "properties": {
         "r": {
           "description": "Number of imaging rounds.",

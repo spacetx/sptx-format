@@ -35,6 +35,12 @@
           "description": "An fov_manifest containing nuclei images.",
           "example": "nuclei.json",
           "pattern": "^.*?.json$"
+        },
+        "dots": {
+          "type": "string",
+          "description": "An fov_manifest containing images of all spot locations per field of view. Used for spot finding.",
+          "example": "dots.json",
+          "pattern": "^.*?.json$"
         }
       }
     },

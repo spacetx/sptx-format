@@ -5,8 +5,7 @@
   "description": "Physical coordinates of the tile.",
   "required": [
     "x",
-    "y",
-    "z"
+    "y"
   ],
   "additionalProperties": false,
   "properties": {

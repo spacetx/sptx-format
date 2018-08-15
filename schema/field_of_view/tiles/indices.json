@@ -3,10 +3,7 @@
   "$id": "https://github.com/sptx-format/schema/field_of_view/tiles/indices.json",
   "type": "object",
   "description": "Describes the categorical indices (channel, round, and z-section) of this tile.",
-  "required": [
-    "c",
-    "z"
-  ],
+  "required": "c",
   "additionalProperties": false,
   "properties": {
     "r": {

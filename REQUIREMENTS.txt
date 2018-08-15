@@ -1,2 +1,4 @@
+click
 jsonschema
 pytest
+slicedimage == 0.0.0-dev21
