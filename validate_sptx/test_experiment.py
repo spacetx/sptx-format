@@ -4,8 +4,6 @@ import pytest
 
 from .util import SpaceTxValidator, package_root
 
-SCHEMA_NAME = 'experiment'
-
 schema_path = os.path.join(package_root, 'schema', 'experiment.json')
 validator = SpaceTxValidator(schema_path)
 example = os.path.join(package_root, 'examples', 'experiment', 'experiment.json')
@@ -33,4 +31,3 @@ def test_dartfish_example_experiment():
     dartfish_example = os.path.join(
         package_root, 'examples', 'experiment', 'dartfish_experiment.json')
     assert validator.validate_file(dartfish_example)
-

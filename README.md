@@ -48,7 +48,7 @@ Example:
 
 ## Manifest
 
-Both the `hybridization.json` and `nuclei.json` files referenced by the above `experiment.json` are examples of a Field of View Manifest. 
+Both the `hybridization.json` and `nuclei.json` files referenced by the above `experiment.json` may contain links to Field of View Manifests (for simple experiments with only one field of view, these fields may also directly reference a field of view). 
 The Manifest is a simple association of a field of view name with the json file that defines the field of view. 
 In this example, we demonstrate a hybridization manifest with three fields of view. 
 Such an experiment would likely also have a nuclei manifest, which would _also_ contain three fields of view. 

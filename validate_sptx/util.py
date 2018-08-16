@@ -106,4 +106,3 @@ class SpaceTxValidator:
             es: Iterator[ValidationError] = self._validator.iter_errors(target_object)
             self._recurse_through_errors(es)
             return False
-

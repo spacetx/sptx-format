@@ -9,6 +9,7 @@ from .util import SpaceTxValidator, package_root
 
 
 def _get_absolute_schema_path(schema_name: str) -> str:
+    """turn the name of the schema into an absolute path by joining it to <package_root>/schema."""
     return os.path.join(package_root, 'schema', schema_name)
 
 
