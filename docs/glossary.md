@@ -2,8 +2,23 @@
 
 Here, we clearly define the relevant terms needed to understand the preceding pipeline specification (in no particular order).
 
-### Inputs
-the minimum set of image data, data manifest and pipeline recipe, from which a pipeline can generate the desired gene expression matrix and spatial locations of transcripts and cells.
+### Channel
+An imaging mode that captures a continuous-valued feature from a field of view. Examples of channels include the read-out from a fluorescent dye, such as Cy3, or a the abundance of an isotope captured from a mass spectrometer. 
+
+### Imaging Round
+Several image-based transcriptomics and proteomics approaches will image the same tissue multiple times. Each time the tissue is imaged is a discrete imaging round. 
+
+### Target
+A feature that is the target of quantification by an image-based assays. Common targets include mRNA transcripts or proteins. 
+
+### IntensityTable
+An intensity Table contains the features identified in an ImageStack. It can be thought of as an array whose entries are the intensities of each feature across the imaging rounds and channels of a field of view. Starfish exposes several processing tools to decode the features of the table, estimate their qualities, and assign features to cells. 
+
+### Codeword 
+A codeword maps expected intensities across multiple image tiles within a field of view to the target that is encoded by the codeword. 
+
+### Codebook
+A codebook contains all the codewords needed by an experiment to decode an IntensityTable. It also contains a mapping of channels to the integer indices that are used by starfish to represent them internally. 
 
 ### Pipeline
 a sequence of data processing steps to process the inputs into the desired outputs.
@@ -21,27 +36,36 @@ a document describing the above terms in detail, i.e., this document.
 actual code for the pipeline. This code will be packaged as a well-documented Python library and corresponding command line tool for use by consortium members to facilitate easy sharing and comparison of results across labs/methods.
 
 ### Manifest
-The data manifest is a file that includes necessary information about the hybridization images, auxiliary images, and codebook. The SpaceTx manifest format is described in detail abovebelow.
+The data manifest is a file that includes the locations of all fields of view for either primary or auxiliary images. 
 
 ### Image Tile
-a single plane, single channel 2D image. In the manifest, each tile has information about it’s (X,Y,Z) coordinates in space, and information about which hybridization round (H) and/or fluorescence channel (C) it was acquired under.
+a single plane, single channel 2D image. In the manifest, each tile has information about it’s (X,Y,Z) coordinates in space, and information about which imaging round (R) and/or fluorescence channel (C) it was acquired under.
 
 ### Field of View (FOV)
-a collection of Iimage Tiles corresponding to a specific volume or plane of the sample, under which the signal for all color channels and all hybridization rounds were acquired. All tiles within this FOV are the same size, but the manifest allows for different spatial coordinates for different hybridization rounds or channels (to accommodate slight movement between rounds, for example).
+a collection of Image Tiles corresponding to a specific volume or plane of the sample, under which the signal for all channels and all imaging rounds were acquired. All tiles within this FOV are the same size, but the manifest allows for different spatial coordinates for different imaging rounds or channels (to accommodate slight movement between rounds, for example).
 
-### Hybridization Images
-The hybridization image data for an experiment, including any form of fluorescence readout.
+### Coordinates (field of view): 
+Coordinates refer to the physical location of a field of view with respect to some independent reference. 
+
+### Indices (field of view): 
+Indices are used to navigate within a field of view, and comprise the pixel size (X, Y, Z) and the channel (C) and round (R) of a field of view. 
+
+### Primary Images
+The primary image data for an experiment. Primary images contain information on imaging targets. primary images build fields of view that usually contain multiple channels and may contain multiple imaging rounds. Primary images can be decoded to identify the abundance of transcript or protein targets.   
 
 ### Auxiliary Images
-Any user-submitted additional images for analysis beyond the hybridization images. These images may be of lower dimension than the hybridization images (e.g., single color channel images), but should span the same spatial extent as the hybridization images acquired under the same FOV.
+Any user-submitted additional images for analysis beyond the primary images. These images may be of lower dimension than the primary images (e.g., single channel images), but should span the same spatial extent as the primary images acquired under the same FOV. Auxiliary images are used to aid the image processing of the primary images. 
 
 Examples of such data may include:
+
 Nuclei (DAPI or similar nuclear stain): this required image shows cell nuclei and is crucial for cell segmentation further on down the pipeline.
+
+Dots: an image containing the locations of imaging features across a field of view.
 
 Other stains or labels: these optional (but recommended) image(s), including but not limited to antibody stains, may capture additional information about cell boundaries or subcellular structure that will be useful for cell segmentation and/or additional spatial analyses.
 
 ### Registration
-refers to the process of aligning multiple images of the same spatial location, most commonly across multiple rounds of hybridization within a FOV.
+refers to the process of aligning multiple images of the same spatial location, most commonly across multiple rounds of imaging within a FOV.
 
 ### Stitching
 the process of combining images from multiple fields of view into a larger image that spans the extent of the sample.
