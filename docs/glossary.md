@@ -43,6 +43,7 @@ a single plane, single channel 2D image. In the manifest, each tile has informat
 
 ### Field of View (FOV)
 a collection of Image Tiles corresponding to a specific volume or plane of the sample, under which the signal for all channels and all imaging rounds were acquired. All tiles within this FOV are the same size, but the manifest allows for different spatial coordinates for different imaging rounds or channels (to accommodate slight movement between rounds, for example).
+In microscopy, a field of view corresponds to the area of the camera sensor, and many such fields of view are expected to be taken per tissue slice. 
 
 ### Coordinates (field of view): 
 Coordinates refer to the physical location of a field of view with respect to some independent reference. 
