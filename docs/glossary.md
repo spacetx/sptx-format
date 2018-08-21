@@ -40,6 +40,7 @@ The data manifest is a file that includes the locations of all fields of view fo
 
 ### Field of View (FOV)
 a collection of Image Tiles corresponding to a specific volume or plane of the sample, under which the signal for all channels and all imaging rounds were acquired. All tiles within this FOV are the same size, but the manifest allows for different spatial coordinates for different imaging rounds or channels (to accommodate slight movement between rounds, for example).
+In microscopy, a field of view corresponds to the area of the camera sensor, and many such fields of view are expected to be taken per tissue slice. 
 
 ### Indices (Field of View): 
 Indices are used to navigate within a field of view, and comprise the physical dimensions of pixel space (X, Y), the z-plane, channel (C) and imaging round (R) of a field of view. 
