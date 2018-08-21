@@ -38,17 +38,20 @@ actual code for the pipeline. This code will be packaged as a well-documented Py
 ### Manifest
 The data manifest is a file that includes the locations of all fields of view for either primary or auxiliary images. 
 
-### Image Tile
-a single plane, single channel 2D image. In the manifest, each tile has information about it’s (X,Y,Z) coordinates in space, and information about which imaging round (R) and/or fluorescence channel (C) it was acquired under.
-
 ### Field of View (FOV)
 a collection of Image Tiles corresponding to a specific volume or plane of the sample, under which the signal for all channels and all imaging rounds were acquired. All tiles within this FOV are the same size, but the manifest allows for different spatial coordinates for different imaging rounds or channels (to accommodate slight movement between rounds, for example).
 
-### Coordinates (field of view): 
-Coordinates refer to the physical location of a field of view with respect to some independent reference. 
+### Indices (Field of View): 
+Indices are used to navigate within a field of view, and comprise the physical dimensions of pixel space (X, Y), the z-plane, channel (C) and imaging round (R) of a field of view. 
 
-### Indices (field of view): 
-Indices are used to navigate within a field of view, and comprise the pixel size (X, Y, Z) and the channel (C) and round (R) of a field of view. 
+### Image Tile
+a single plane, single channel 2D image. In the manifest, each tile has information about it’s (X,Y,Z) coordinates in space, and information about which imaging round (R) and/or fluorescence channel (C) it was acquired under.
+
+### Coordinates (Tile): 
+Coordinates refer to the physical location of a Tile with respect to some independent reference. 
+
+### Indices (Tile):
+Indices indicate which round, channel, and z-plane a given (x, y) Tile corresponds to. 
 
 ### Primary Images
 The primary image data for an experiment. Primary images contain information on imaging targets. primary images build fields of view that usually contain multiple channels and may contain multiple imaging rounds. Primary images can be decoded to identify the abundance of transcript or protein targets.   
