@@ -1,0 +1,13 @@
+name: sptx
+channels:
+- defaults
+- bioconda
+- conda-forge
+dependencies:
+- python>=3.6
+- click
+- flake8
+- jsonschema
+- mypy
+- pytest
+- slicedimage==0.0.1
