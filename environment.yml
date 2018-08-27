@@ -1,3 +1,4 @@
+# Also update REQUIREMENTS.txt
 name: sptx
 channels:
 - defaults
