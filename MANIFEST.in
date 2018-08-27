@@ -1,1 +1,2 @@
 recursive-include schema/ *.json
+recursive-include examples/ *.json
