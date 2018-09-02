@@ -24,7 +24,7 @@ setup(
     url="https://github.com/spacetx/sptx-format.git",
     author="Ambrose J. Carr",
     author_email="mail@ambrosejcarr.com",
-    packages=["validate_sptx"],
+    packages=["validate_sptx", "schema", "examples"],
     install_requires=install_requires,
     entry_points={
         'console_scripts': "validate-sptx=validate_sptx.validate_sptx:validate_sptx"
