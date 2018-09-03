@@ -27,6 +27,13 @@ def test_dartfish_nuclei_example_field_of_view():
     assert validator.validate_file(dartfish_example_path)
 
 
+def test_fov_must_be_present():
+    no_fov = validator.load_json(example)
+    del no_fov['fov']
+    with pytest.warns(UserWarning):
+        assert not validator.validate_object(no_fov)
+
+
 def test_channel_must_be_present():
     no_channel = validator.load_json(example)
     del no_channel['tiles'][0]['indices']['c']
