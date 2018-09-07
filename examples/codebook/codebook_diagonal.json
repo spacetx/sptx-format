@@ -1,20 +1,37 @@
-[
-  {
-    "codeword": [
-      {"c": 0, "v": 1}
-    ],
-    "target": "SCUBE2"
-  },
-  {
-    "codeword": [
-      {"c": 1, "v": 1}
-    ],
-    "target": "BRCA"
-  },
-  {
-    "codeword": [
-      {"c": 2, "v": 1}
-    ],
-    "target": "ACTB"
-  }
-]
+{
+  "codes": [
+    {
+      "codeword": [
+        {"c": 0, "v": 1}
+      ],
+      "target": "SCUBE2"
+    },
+    {
+      "codeword": [
+        {"c": 1, "v": 1}
+      ],
+      "target": "BRCA"
+    },
+    {
+      "codeword": [
+        {"c": 2, "v": 1}
+      ],
+      "target": "ACTB"
+    }
+  ],
+  "channel_map": [
+    {
+      "channel": "cy5",
+      "index": 0
+    },
+    {
+      "channel": "cy3",
+      "index": 1
+    },
+    {
+      "channel": "rCherry",
+      "index": 2
+    }
+  ],
+  "version": "0.1.0"
+}

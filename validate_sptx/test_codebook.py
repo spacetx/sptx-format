@@ -34,6 +34,6 @@ def test_codebook_missing_channel_raises_validation_error():
         package_root, 'examples', 'codebook', 'codebook.json'
     )
     codebook = validator.load_json(codebook_example_path)
-    del codebook[0]['codeword'][0]['c']
+    del codebook['codes'][0]['codeword'][0]['c']
     with pytest.warns(UserWarning):
         assert not validator.validate_object(codebook)
