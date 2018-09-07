@@ -24,6 +24,9 @@ Here, we tabulate the minimum set of required json files that can describe the i
 | field_of_view.json   | describes how individual 2-d image planes form an image tensor                                           |
 | codebook.json        | maps patterns of intensity in the channels and rounds of a field of view to target molecules |
 
+These files connect together to define an experiment as demonstrated by this diagram: 
+![diagram](img/sptx-format.png)
+
 Each of these input types and their file formats are described in detail in the following sections. 
 
 ## Experiment
